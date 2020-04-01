@@ -4,8 +4,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="noimageindex, noarchive" name="robots">
     <meta content="yes" name="mobile-web-app-capable">
-    <link href="https://fonts.googleapis.com/css?family=Muli|Playfair+Display" rel="stylesheet">
-    <link rel="prefetch" href="https://rpsthecoder.github.io/js-speech-synthesis/pause1.svg">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
     <link rel="prefetch" href="https://rpsthecoder.github.io/js-speech-synthesis/stop1.svg">
     <link rel="prefetch" href="https://rpsthecoder.github.io/js-speech-synthesis/play1.svg">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,8 +13,7 @@
     body {
         font-weight: 400;
         line-height: 1.6;
-        font-family: "Muli", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        /*        background: #ffffff url(https://www.toptal.com/designers/subtlepatterns/patterns/memphis-colorful.png);*/
+        font-family: "Nanum Gothic", breezesans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
     * {
@@ -267,24 +265,24 @@
 
 <div class="plypzstp">
     <button id="play"></button> &nbsp;
-    <button id="pause"></button> &nbsp;
     <button id="stop"></button>
 </div>
 <article>
-    <h1>The Sleep-Walkers</h1>
-    <p>For example, if there is a rectangular block of pixels all the same color in an
-image, a PostScript program for the image would carry instructions to place a rect-
-        angle at a certain location and fill it with a certain color.</p><p> Only a handful of bits are
-needed to issue this command. When the image is received at the printer, an inter-
-preter there must run the program to construct the image. Thus PostScript achieves
-data compression at the expense of more computation, a different trade-off than ta-
-    ble lookup, but a valuable one when memory or bandwidth is scarce.</p><p>
-Other trade-offs often involve data structures. Doubly linked lists take up more
+    <h1>Space - Time</h1>
+<p>Processes and programs do not act at random. They exhibit a fair amount of lo-
+cality in time and space, and this information can be exploited in various ways to
+improve performance. One well-known example of spatial locality is the fact that
+processes do not jump around at random within their address spaces. They tend to
+use a relatively small number of pages during a given time interval. The pages that
+a process is actively using can be noted as its working set, and the operating sys-
+tem can make sure that when the process is allowed to run, its working set is in
+    memory, thus reducing the number of page faults.</p>
+    <p>Some trade-offs often involve data structures. Doubly linked lists take up more
 memory than singly linked lists, but often allow faster access to items. Hash tables
-are even more wasteful of space, but faster still. In short, one of the main things to
+are even more wasteful of space, but faster still. </p>
+    <blockquote>Moral of the story: One of the main things to
 consider when optimizing a piece of code is whether using different data structures
-would make the best time-space trade-off.</p>
-    <blockquote>Moral of the story: He that has many friends, has no friends.</blockquote>
+would make the best time-space trade-off.</blockquote>
 </article>
 
 <style>
@@ -317,13 +315,12 @@ would make the best time-space trade-off.</p>
     }
 
     blockquote {
-        font-family: "Playfair Display";
+        font-family: monospace;
         font-size: 1.2rem;
     }
 
 
     #play,
-    #pause,
     #stop {
         background: none;
         border: none;
@@ -340,14 +337,6 @@ would make the best time-space trade-off.</p>
 
     #play.played {
         background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play1.svg);
-    }
-
-    #pause {
-        background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause.svg);
-    }
-
-    #pause.paused {
-        background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause1.svg);
     }
 
     #stop {
@@ -371,13 +360,11 @@ would make the best time-space trade-off.</p>
 
 
             var playEle = document.querySelector('#play');
-            var pauseEle = document.querySelector('#pause');
             var stopEle = document.querySelector('#stop');
             var flag = false;
 
 
             playEle.addEventListener('click', onClickPlay);
-            pauseEle.addEventListener('click', onClickPause);
             stopEle.addEventListener('click', onClickStop);
 
             function onClickPlay() {
@@ -398,14 +385,6 @@ would make the best time-space trade-off.</p>
                     playEle.className = 'played';
                     pauseEle.className = '';
                     resume();
-                }
-            }
-
-            function onClickPause() {
-                if (speaking && !paused) { /* pause narration */
-                    pauseEle.className = 'paused';
-                    playEle.className = '';
-                    pause();
                 }
             }
 
